@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-
+import { Outlet, Link} from "react-router-dom";
 import Button from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';
 import './cart-dropdown.styles.scss';
@@ -18,7 +18,9 @@ return(
           <span className='empty-message'>Your cart is empty</span>
         )}
       </div>
-      <Button>GO TO CHECKOUT</Button>
+      <Link to='/check-out'>
+      <Button >GO TO CHECKOUT</Button>
+      </Link> 
     </div>
 )
 };
