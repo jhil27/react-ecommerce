@@ -1,5 +1,5 @@
 import { createContext,useEffect,useState } from "react";
-import PRODUCTS from '../shop-data.json'
+// import PRODUCTS from '../shop-data.json'
 //actual value use want to get
 export const addCartItem = (cartItems, productToAdd) => {
    const existingCartItem = cartItems.find(
