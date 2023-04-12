@@ -15,7 +15,7 @@ const CheckOutItem=({cartItem})=>{
        }
     const deleteItem=()=>{
         let currentCartItems= deleteItemFromCart(cartItems,cartItem)
-        console.log(currentCartItems)
+        
         setCartItems(currentCartItems)
     }
     return(

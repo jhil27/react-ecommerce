@@ -60,7 +60,7 @@ const firebaseConfig = {
           ...additionalInfo
         });
       } catch (error) {
-        console.log('error creating the user', error.message);
+        
       }
     }
   
@@ -71,21 +71,21 @@ const firebaseConfig = {
   // export const addCollectionAndDocuments=async(collectionKey,objectsToAdd)=>{
   //   const batch = writeBatch(db);
   //   const collectionRef = collection(db, collectionKey);
-  //   console.log(objectsToAdd)
+  //   
   //   objectsToAdd.forEach((object) => {
   //      const docRef = doc(collectionRef, object.title.toLowerCase());
   //      batch.set(docRef, object);
   //   });
   
   //   await batch.commit();
-  //   console.log('done');
+  //   
   // }
 
   export const getCategoriesNDocuments=async()=>{
     const collectionRef = collection(db, 'categories');
     const q=query(collectionRef);
     const querySnap=await getDocs(q);
-    console.log(querySnap.docs)
+    
     
     const categoryMap=querySnap.docs.reduce((acc,category)=>{
       let {title,items}=category.data();

@@ -35,13 +35,13 @@ const SingUpForm=()=>{
         let {user} = await userAuthWithEmailPassword(email,password);
         let userDoc=  await getUserDetailsFromAuth(user,{displayName});
         // setCurrentUser(userDoc);
-        console.log(user)
+        
         resetFormFields();
       } catch (error) {
         if(error.code==='auth/email-already-in-use'){
           alert('Email already exists')
         }
-        console.log(error)
+        
       }
     }
 

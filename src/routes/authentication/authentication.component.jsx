@@ -3,14 +3,14 @@ import { useEffect,useState,useContext} from "react";
 import {getRedirectResult } from 'firebase/auth';
 import SingUpForm from '../../components/sign-up-form/signUpFrom.component';
 import FormInput from "../../components/form-input/form-input.component";
-import Button from "../../components/button/button.component";
+import Button, { BUTTON_TYPE_CLASSES } from "../../components/button/button.component";
 import './authentication.styles.scss';
 // import {UserContext} from '../../contexts/user.context'
 const SignIn=()=>{
 // const {setCurrentUser}= useContext(UserContext)
 const logGoogleUser=async()=>{
 await signInGoogleWithPopup();
-// console.log(user)
+// 
 // setCurrentUser(user)
 }
 const defaultFormFields={
@@ -75,7 +75,7 @@ return(
           />
            <div className='buttons-container'>
           <Button type='submit'>Sign In</Button>
-          <Button type='button' buttonType={'google'} onClick={logGoogleUser}> Sign In with Google Pop Up</Button>
+          <Button type='button' buttonType={BUTTON_TYPE_CLASSES.google} onClick={logGoogleUser}> Sign In with Google</Button>
           </div>
         </form>   
 </div>
