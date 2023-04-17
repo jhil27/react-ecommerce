@@ -1,22 +1,18 @@
 import { useContext, } from "react";
-import { CartContext,addCartItem,removeCartItem,deleteItemFromCart} from "../../contexts/cart.context";
+import { CartContext} from "../../contexts/cart.context";
 // import {ProductContext} from '../../contexts/product.context';
 import './checkOutItem.styles.scss';
 const CheckOutItem=({cartItem})=>{
-    const {cartItems,setCartItems}=useContext(CartContext);
+    const {addItemToCart,deleteCartItem,removeItemFromCart}=useContext(CartContext);
     const {imageUrl,name,quantity,price}=cartItem;
     const addSelectedItem=()=>{
-     let total=addCartItem(cartItems,cartItem);
-     setCartItems(total)
+     addItemToCart(cartItem);
     }
     const removeSelectedItem=()=>{
-        let total=removeCartItem(cartItems,cartItem);
-        setCartItems(total)
+        removeItemFromCart(cartItem);
        }
     const deleteItem=()=>{
-        let currentCartItems= deleteItemFromCart(cartItems,cartItem)
-        
-        setCartItems(currentCartItems)
+     deleteCartItem(cartItem)
     }
     return(
         <div className='checkout-item-container'>
