@@ -85,14 +85,13 @@ const firebaseConfig = {
     const collectionRef = collection(db, 'categories');
     const q=query(collectionRef);
     const querySnap=await getDocs(q);
-    
-    
-    const categoryMap=querySnap.docs.reduce((acc,category)=>{
-      let {title,items}=category.data();
-      acc[title.toLowerCase()]=items;
-      return acc;
-      },{})
-      return categoryMap;
+    return querySnap.docs.map((docSnapshot)=>docSnapshot.data());
+    // .reduce((acc,category)=>{
+    //   let {title,items}=category.data();
+    //   acc[title.toLowerCase()]=items;
+    //   return acc;
+    //   },{})
+    //   return categoryMap;
   }
 
   export const userAuthWithEmailPassword=async(email,password)=>{

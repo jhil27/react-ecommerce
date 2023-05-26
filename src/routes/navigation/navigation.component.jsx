@@ -7,13 +7,13 @@ import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import {LogoContainer,NavLink,NavLinks,NavigationContainer} from './navigation.styles';
 import { signOutFromApp } from "../../utils/firebase/firebase.utils";
-import { CartContext } from "../../contexts/cart.context";
-
+// import { CartContext } from "../../contexts/cart.context";
+import {selectIsCartOpen} from '../../store/cart/cart.selector'
 
 const Navigation=()=>{
 const currentUser=useSelector(selectCurrentUser);
 console.log(currentUser)
-const {isCartOpen}=useContext(CartContext);
+const isCartOpen=useSelector(selectIsCartOpen);
 
 const signOutHandler=async()=>{
   await signOutFromApp();
